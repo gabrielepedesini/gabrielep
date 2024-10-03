@@ -22,11 +22,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 h3 {
@@ -36,11 +36,11 @@ h3 {
 @media (max-width: 768px) {
     
     h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
     
     h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     h3 {
