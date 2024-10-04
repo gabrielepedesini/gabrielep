@@ -1,5 +1,5 @@
 // deletes the .html extension
-window.addEventListener("loadstart", () => {
+window.addEventListener("load", () => {
 
     if (window.location.pathname.endsWith('.html')) {
         const newPath = window.location.pathname.replace('.html', '');
