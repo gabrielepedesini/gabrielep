@@ -16,3 +16,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev
     const newTheme = event.matches ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);
 });
+
+if (window.location.pathname.endsWith('.html')) {
+    const newPath = window.location.pathname.replace('.html', '');
+    window.history.replaceState({}, document.title, newPath);
+  }
