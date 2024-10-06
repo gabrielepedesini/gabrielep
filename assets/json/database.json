@@ -40,6 +40,45 @@
                 "link": "brickedgame.netlify.app/",
                 "github": "https://github.com/gabrielepedesini/bricked",
                 "img": true
+            },
+            {
+                "id": "alessandragiuliani",
+                "title": "alessandra giuliani",
+                "shortdesc": "un sito web creato per una biologa nutrizionista",
+                "date": "agosto, 2024",
+                "desc": ["è un progetto di un sito vetrina per una professionista che voleva migliorare la sua presenza online.", "il lavoro nasce con lo scopo di creare un sito web semplice ma completo, che sia anche graficamente accattivante."],
+                "goals": ["l'obiettivo della cliente era quello di spiegare all'interno di una pagina in cosa consistesse il suo lavoro, che servizi offrisse e le informazioni utili per contattarla.", "tutto questo allo scopo di ottenere dei nuovi clienti."],
+                "functions": ["responsive design", "form di contatto", "mappa custom"],
+                "technologies": ["html", "css", "javascript"],
+                "link": "alessandragiuliani.it",
+                "github": false,
+                "img": true
+            },
+            {
+                "id": "sanderundsommer",
+                "title": "sander und sommer",
+                "shortdesc": "un sito web creato per una clinica tedesca",
+                "date": "luglio, 2024",
+                "desc": ["è un progetto di un sito vetrina per una clinica tedesca in cerca di qualcosa di professionale e graficamente soddisfacente.", "infatti, erano già in possesso di una pagina che tuttavia non li soddisfava a pieno.", "di conseguenza, dopo aver compreso quali fossero le loro esigenze, ho provveduto a realizzare il loro attuale sito."],
+                "goals": ["l'obiettivo era quello di descrivere tutto ciò che sta dietro la clinica: i servizi, il team, i clienti...", "chiaramente, il tutto aveva anche l'obiettivo di dare vita alla sua presenza online, aumentando anche la clientela."],
+                "functions": ["responsive design", "light/dark mode", "mappa custom"],
+                "technologies": ["html", "css", "javascript"],
+                "link": "sanderundsommer.de",
+                "github": null,
+                "img": true
+            },
+            {
+                "id": "minimaltris",
+                "title": "minimal tris",
+                "shortdesc": "un gioco online di tris",
+                "date": "settembre, 2023",
+                "desc": ["si tratta di un gioco molto semplice, in cui il giocatore può scegliere se giocare in single player oppure in multiplayer.", "nella prima modalità, si troverà a giocare contro un AI molto rudimentale.", "nella seconda, potrà giocare a turno con un proprio amico in locale."],
+                "goals": null,
+                "functions": ["responsive design", "AI player"],
+                "technologies": ["html", "css", "javascript"],
+                "link": "minimaltris.netlify.app",
+                "github": "https://github.com/gabrielepedesini/tris",
+                "img": true
             }
         ]
 

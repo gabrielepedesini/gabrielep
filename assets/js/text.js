@@ -248,8 +248,7 @@ function renderProjects(lang) {
             copy.forEach(element => {
                 listElement.innerHTML += `
                     <li>
-                        <a href="
-                        projects/${element.id}.html">${element.title}</a> - <span>${element.date}</span>
+                        <a href="projects/${element.id}.html">${element.title}</a> - <span>${element.date}</span>
                         <p class="desc">${element.shortdesc}</p>
                     </li>
                 `
