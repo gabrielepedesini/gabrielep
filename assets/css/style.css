@@ -17,8 +17,12 @@ h1, h2, h3, h4, h5, h6, a, button {
     line-height: 1.1;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     margin-bottom: 20px;
+}
+
+h3, h4, h5, h6 {
+    margin-bottom: 15px;
 }
 
 h1 {
@@ -186,16 +190,56 @@ section ul li {
     margin-bottom: 3px;
 }
 
-section .prof {
-    opacity: 0.5;
-}
-
 section .subjects > li {
     margin-bottom: 15px;
 }
 
 section .subjects > li > ul {
     margin-top: 6px;
+}
+
+section.project-section,
+section.project-link {
+    padding: 20px 0;
+}
+
+section.project-title img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--text);
+    margin-top: 15px;
+}
+
+section .opacity,
+section.page-projects .desc,
+section.project-section p,
+section.project-section li {
+    opacity: 0.5;
+}
+
+section.project-link p {
+    margin-bottom: 3px;
+}
+
+section.project-link p span {
+    opacity: 0.5;
+}
+
+section.project-link p .bullet {
+    margin-right: 5px;
+}
+
+section.page-projects li {
+    margin-bottom: 15px;
+}
+
+section.page-projects li > p {
+    margin-top: 3px;
+}
+
+section .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 /* FOOTER */

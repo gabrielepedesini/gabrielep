@@ -18,7 +18,7 @@ function renderNavbar() {
     navbarLinks.forEach(link => {
         navbarHTML += `
             <li>
-                <a href="${link.href}">${link.text}</a>
+                <a href="../${link.href}">${link.text}</a>
             </li>
         `;
     });

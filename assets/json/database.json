@@ -1,0 +1,57 @@
+{
+    "it": {
+
+        "projects": [
+            {
+                "id": "achrisgraphics",
+                "title": "achrisgraphics",
+                "shortdesc": "un sito web creato per un graphic designer",
+                "date": "giugno, 2023",
+                "desc": ["il progetto funge da portale attraverso il quale mostrare i propri lavori in maniera suggestiva e professionale per il cliente.", "infatti, l'intero sito è stato creato sulla base delle direttive stilistiche ed artistiche del dello stesso cliente."],
+                "goals": ["l'esigenza fondamentale è quella di avere uno spazio online nel quale mostrare i propri progetti.", "inoltre, attraverso questo sito, il cliente puntava ad ampliare il bacino di clientela."],
+                "functions": ["responsive design", "cursore custom", "download di documenti", "form di contatto"],
+                "technologies": ["html", "css", "javascript"],
+                "link": "achrisgraphics.it",
+                "github": "https://github.com/gabrielepedesini/achris",
+                "img": true
+            },
+            {
+                "id": "trendtribes",
+                "title": "trend tribes",
+                "shortdesc": "un tema custom wordpress di un ecommerce basato su woocommerce",
+                "date": "febbraio, 2024",
+                "desc": ["si tratta di un tema custom per il noto cms di wordpress, accompagnato dal plugin woocommerce, con cui gestire le funzionalità ecommerce.", "il progetto ha l'ambizione di essere il più minimal possibile, sia dal punto di vista visivo che da quello tecnico."],
+                "goals": ["l'obiettivo era quello di creare un tema di un ecommerce facile e veloce da configurare, in maniera tale da poterlo mettere online nel più breve tempo possibile."],
+                "functions": ["responsive design", "sistema di filtri custom", "autenticazione e area utente", "blog", "form di contatto", "recensioni", "gateway di pagamento"],
+                "technologies": ["html", "css", "javascript", "wordpress"],
+                "link": "trendtribes.infinityfreeapp.com/",
+                "github": "https://github.com/gabrielepedesini/trendtribes",
+                "img": true
+            },
+            {
+                "id": "bricked",
+                "title": "bricked",
+                "shortdesc": "un gioco online che si ispira a tetris",
+                "date": "ottobre, 2023",
+                "desc": ["ho creato questo gioco per mettermi alla prova, cercando di utilizzare le conoscenze che avevo appreso fino a quel momento per realizzare qualcosa.", "mi rendo conto che probabilmente il progetto non è stato strutturato nel modo più efficiente del mondo, ma almemo mi ha permesso di raggiungere un definito funzionamento desiderato attraverso delle soluzioni personali, e non con suggerimenti esterni."],
+                "goals": null,
+                "functions": ["responsive design", "classifiche"],
+                "technologies": ["html", "css", "javascript"],
+                "link": "brickedgame.netlify.app/",
+                "github": "https://github.com/gabrielepedesini/bricked",
+                "img": true
+            }
+        ]
+
+    },
+    
+    "en": {
+
+        "projects": [
+            
+        ]
+        
+    }
+    
+}
+  
