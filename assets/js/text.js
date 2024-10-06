@@ -9,7 +9,9 @@ window.addEventListener("load", () => {
 
     // renderize a project page
     if (url.includes("/projects/")) {
-        let result = url.split("/")[2].split(".")[0];
+        const regex = /projects\/(.*?)\.html/;
+        const match = url.match(regex);
+        let result = match[1];
         return renderProject(lang, result);
     }
 
