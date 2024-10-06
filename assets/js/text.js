@@ -8,28 +8,28 @@ window.addEventListener("load", () => {
     document.documentElement.lang = "it";
 
     // renderize a project page
-    if (url.startsWith("/portfolio/projects/") && url.length > "/projects/".length) {
+    if (url.includes("/projects/")) {
         let result = url.split("/")[2].split(".")[0];
         return renderProject(lang, result);
     }
 
     // renderize the projects page
-    if (url.startsWith("/portfolio/projects")) {
+    if (url.includes("/projects")) {
         return renderProjects(lang);
     }
 
     // renderize the notes page
-    if (url.startsWith("/portfolio/notes")) {
+    if (url.includes("/notes")) {
         return renderNotes(lang);
     }
 
     // renderize the contacts page
-    if (url.startsWith("/portfolio/contacts")) {
+    if (url.includes("/contacts")) {
         return renderContacts(lang);
     }
 
     // renderize the index page
-    if (url.startsWith("/portfolio/index") || url === "/") {
+    if (url.includes("/index") || url === "/") {
         return renderIndex(lang);
     }
 })

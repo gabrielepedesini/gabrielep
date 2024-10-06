@@ -15,7 +15,7 @@ function renderNavbar() {
             <ul>
     `;
 
-    if (window.location.pathname.startsWith("/portfolio/projects/")) {
+    if (window.location.pathname.includes("/projects/")) {
         navbarLinks.forEach(link => {
             navbarHTML += `
                 <li>
