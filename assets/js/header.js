@@ -15,13 +15,23 @@ function renderNavbar() {
             <ul>
     `;
 
-    navbarLinks.forEach(link => {
-        navbarHTML += `
-            <li>
-                <a href="../${link.href}">${link.text}</a>
-            </li>
-        `;
-    });
+    if (window.location.pathname.startsWith("/portfolio/projects/")) {
+        navbarLinks.forEach(link => {
+            navbarHTML += `
+                <li>
+                    <a href="${link.href}">${link.text}</a>
+                </li>
+            `;
+        });
+    } else {
+        navbarLinks.forEach(link => {
+            navbarHTML += `
+                <li>
+                    <a href="../${link.href}">${link.text}</a>
+                </li>
+            `;
+        });
+    }
 
     navbarHTML += `
             </ul>
