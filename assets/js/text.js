@@ -65,7 +65,7 @@ function renderProject(lang, url) {
                             <div class="container">
 
                                 <div class="breadcrumb">
-                                    <a href="../projects.html">projects</a> 
+                                    <a href="../projects.html">progetti</a> 
                                     <span class="opacity">/ ${element.title}</span>
                                 </div>
 
