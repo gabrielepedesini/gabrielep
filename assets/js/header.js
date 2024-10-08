@@ -4,8 +4,10 @@ let lang;
 
 if (langPreferred.startsWith('it')) {
     lang = "it"
+    document.documentElement.lang = "it";
 } else {
     lang = "en"
+    document.documentElement.lang = "en";
 }
 
 // modify the links
