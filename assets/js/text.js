@@ -3,9 +3,15 @@ window.addEventListener("load", () => {
 
     const url = window.location.pathname;
 
-    // right now, only itlian language
-    let lang = "it";
-    document.documentElement.lang = "it";
+    // preferred language
+    const langPreferred = navigator.language || navigator.userLanguage;
+    let lang;
+
+    if (langPreferred.startsWith('it')) {
+        lang = "it"
+    } else {
+        lang = "en"
+    }
 
     // renderize a project page
     if (url.includes("/projects/")) {
@@ -40,32 +46,32 @@ window.addEventListener("load", () => {
 function renderProject(lang, url) {
 
     let copy;
-
     let projectElement = document.querySelector(".render-project");
 
     projectElement.innerHTML = "";
 
-    if (lang === "it") {
-
-        // fethces the json
-        fetch('../assets/json/database.json')
+    fetch('../assets/json/database.json')
         .then(response => response.json())
         .then(text => {
-            copy = text.it.projects;
+            
+            if (lang === "it") {
+                copy = text.it.projects.details;
+            } else if (lang === "en") {
+                copy = text.en.projects.details;
+            }
 
             copy.forEach(element => {
                 if (url === element.id) {
 
-                    // updates page title
                     document.title = `${element.title} | gabriele pedesini`;
 
-                    // renders title section
+                    // render the title section
                     let titleSection = `
                         <section class="project-title">
                             <div class="container">
 
                                 <div class="breadcrumb">
-                                    <a href="../projects.html">progetti</a> 
+                                    <a href="../projects.html">${lang === 'it' ? 'progetti' : 'projects'}</a> 
                                     <span class="opacity">/ ${element.title}</span>
                                 </div>
 
@@ -85,20 +91,19 @@ function renderProject(lang, url) {
 
                     projectElement.innerHTML += titleSection;
 
-                    // renders desc section
+                    // render description section
                     if (element.desc !== null) {
-
                         let descriptionSection = `
                             <section class="project-section">
                                 <div class="container">
 
-                                    <h3>descrizione</h3>
+                                    <h3>${lang === 'it' ? 'descrizione' : 'description'}</h3>
                         `;
 
                         element.desc.forEach(el => {
                             descriptionSection += `
                                 <p>${el}</p>
-                            `
+                            `;
                         });
 
                         descriptionSection += `
@@ -109,20 +114,19 @@ function renderProject(lang, url) {
                         projectElement.innerHTML += descriptionSection;
                     }
 
-                    // renders goals section
+                    // render goals section
                     if (element.goals !== null) {
-
                         let goalsSection = `
                             <section class="project-section">
                                 <div class="container">
 
-                                    <h3>obiettivi</h3>
+                                    <h3>${lang === 'it' ? 'obiettivi' : 'goals'}</h3>
                         `;
 
                         element.goals.forEach(el => {
                             goalsSection += `
                                 <p>${el}</p>
-                            `
+                            `;
                         });
 
                         goalsSection += `
@@ -133,21 +137,20 @@ function renderProject(lang, url) {
                         projectElement.innerHTML += goalsSection;
                     }
 
-                    // renders functions section
+                    // render functions section
                     if (element.functions !== null) {
-
                         let functionsSection = `
                             <section class="project-section">
                                 <div class="container">
 
-                                    <h3>funzioni</h3>
+                                    <h3>${lang === 'it' ? 'funzioni' : 'functions'}</h3>
                                     <ul>
                         `;
 
                         element.functions.forEach(el => {
                             functionsSection += `
                                 <li>${el}</li>
-                            `
+                            `;
                         });
 
                         functionsSection += `
@@ -159,21 +162,20 @@ function renderProject(lang, url) {
                         projectElement.innerHTML += functionsSection;
                     }
 
-                    // renders technologies section
+                    // render technologies section
                     if (element.technologies !== null) {
-
                         let technologiesSection = `
                             <section class="project-section">
                                 <div class="container">
 
-                                    <h3>tecnologie</h3>
+                                    <h3>${lang === 'it' ? 'tecnologie' : 'technologies'}</h3>
                                     <ul>
                         `;
 
                         element.technologies.forEach(el => {
                             technologiesSection += `
                                 <li>${el}</li>
-                            `
+                            `;
                         });
 
                         technologiesSection += `
@@ -185,9 +187,8 @@ function renderProject(lang, url) {
                         projectElement.innerHTML += technologiesSection;
                     }
 
-                    // renders link section
+                    // render link section
                     if (element.link !== null || element.github !== null) {
-
                         let linkSection = `
                             <section class="project-link">
                                 <div class="container">
@@ -198,9 +199,10 @@ function renderProject(lang, url) {
                         if (element.link !== null) {
                             linkSection += `
                                 <p>
-                                    <span>live preview:</span> <a href="https://${element.link}">${element.link}</a>
+                                    <span>live preview:</span> 
+                                    <a href="https://${element.link}">${element.link}</a>
                                 </p>
-                            `
+                            `;
                         }
 
                         if (element.github !== null) {
@@ -208,7 +210,7 @@ function renderProject(lang, url) {
                                 <p>
                                     <span>github:</span> <a href="${element.github}">repo</a>
                                 </p>
-                            `
+                            `;
                         }
 
                         linkSection += `
@@ -223,40 +225,288 @@ function renderProject(lang, url) {
             
         })
         .catch(error => console.error('Error loading JSON:', error));
-
-    } else {
-
-    }
 }
 
 // render projects page
 function renderProjects(lang) {
 
     let copy;
-    let listElement = document.querySelector(".render-projects");
+    let projectsElement = document.querySelector(".render-projects");
 
-    listElement.innerHTML = "";
+    projectsElement.innerHTML = "";
 
-    if (lang === "it") {
+    // fethces the json
+    fetch('assets/json/database.json')
+    .then(response => response.json())
+    .then(text => {
 
-        // fethces the json
-        fetch('assets/json/database.json')
-        .then(response => response.json())
-        .then(text => {
+        if (lang === "it") {
             copy = text.it.projects;
+            document.title = `progetti | gabriele pedesini`;
+        } else if (lang === "en") {
+            copy = text.en.projects;
+            document.title = `projects | gabriele pedesini`;
+        }
 
-            copy.forEach(element => {
-                listElement.innerHTML += `
-                    <li>
-                        <a href="projects/${element.id}.html">${element.title}</a> - <span>${element.date}</span>
-                        <p class="desc">${element.shortdesc}</p>
-                    </li>
-                `
+        // render intro section
+        let introSection = `
+        <section class="intro">
+            <div class="container">
+                <h1>${copy.intro.title}</h1>
+        `;
+        
+        copy.intro.desc.forEach(element => {
+            introSection += `
+                <p>${element}</p>
+            `;
+        });
+
+        introSection += `
+                </div>
+            </section>
+        `;     
+
+        projectsElement.innerHTML += introSection;
+
+        // render project list
+        let projectsSection = `
+            <section class="page-projects">
+                <div class="container">
+                    <ul>
+        `;
+        
+        copy.details.forEach(element => {
+            projectsSection += `
+                <li>
+                    <a href="projects/${element.id}.html">${element.title}</a> - <span>${element.date}</span>
+                    <p class="desc">${element.shortdesc}</p>
+                </li>
+            `
+        });
+
+        projectsSection += `
+                    </ul>
+                </div>
+            </section>
+        `;
+
+        projectsElement.innerHTML += projectsSection;
+    })
+    .catch(error => console.error('Error loading JSON:', error));
+}
+
+// render notes page
+function renderNotes(lang) {
+    let copy;
+
+    let notesElement = document.querySelector(".render-notes");
+
+    notesElement.innerHTML = "";
+
+    // fetches the json
+    fetch('../assets/json/database.json')
+    .then(response => response.json())
+    .then(text => {
+        
+        if (lang === "it") {
+            copy = text.it.notes;
+            document.title = `appunti | gabriele pedesini`;
+        } else if (lang === "en") {
+            copy = text.en.notes;
+            document.title = `notes | gabriele pedesini`;
+        }
+
+        // render intro section
+        let introSection = `
+            <section class="intro">
+                <div class="container">
+                    <h1>${copy.intro.title}</h1>
+        `;
+        
+        copy.intro.desc.forEach(element => {
+            introSection += `
+                <p>${element}</p>
+            `;
+        });
+
+        introSection += `
+                </div>
+            </section>
+        `;     
+
+        notesElement.innerHTML += introSection;
+
+        // render the courses and their resources
+        let coursesSection = `
+            <section class="notes">
+                <div class="container">
+        `;
+
+        coursesSection += `<ul class="subjects">`;
+
+        copy.courses.forEach(course => {
+            let courseSection = `
+                <li>
+                    ${course.title} - <span class="opacity">${course.teacher}</span>
+                    <ul>
+            `;
+
+            course.resources.forEach(resource => {
+                courseSection += `
+                    <li><a href="${resource.link}">${resource.type}</a></li>
+                `;
             });
-        })
-        .catch(error => console.error('Error loading JSON:', error));
 
-    } else {
+            courseSection += `
+                    </ul>
+                </li>
+            `;
 
-    }
+            coursesSection += courseSection;
+        });
+
+        coursesSection += `</ul>`;
+        
+        coursesSection += `
+                </div>
+            </section>
+        `;
+
+        notesElement.innerHTML += coursesSection;
+    })
+    .catch(error => console.error('Error loading JSON:', error));
+}
+
+// renders contacts page
+function renderContacts(lang) {
+    let copy;
+
+    let contactsElement = document.querySelector(".render-contacts");
+
+    contactsElement.innerHTML = "";
+
+    // fetches the json
+    fetch('../assets/json/database.json')
+    .then(response => response.json())
+    .then(text => {
+        
+        if (lang === "it") {
+            copy = text.it.contacts;
+            document.title = `contatti | gabriele pedesini`;
+        } else if (lang === "en") {
+            copy = text.en.contacts;
+            document.title = `contacts | gabriele pedesini`;
+        }
+
+        // render intro section
+        let introSection = `
+            <section class="intro">
+                <div class="container">
+                    <h1>${copy.title}</h1>
+                    <p>${copy.desc}</p>
+                    <ul>
+        `;
+        
+        copy.ref.forEach(element => {
+            introSection += `
+                <li><a href="${element.link}">${element.name}</a></li>
+            `;
+        });
+
+        introSection += `
+                    </ul>
+                </div>
+            </section>
+        `;     
+
+        contactsElement.innerHTML += introSection;
+    })
+    .catch(error => console.error('Error loading JSON:', error));
+}
+
+// renders index page
+function renderIndex(lang) {
+    let copy;
+    let projects;
+
+    let indexElement = document.querySelector(".render-index");
+
+    indexElement.innerHTML = "";
+
+    // fetches the json
+    fetch('../assets/json/database.json')
+    .then(response => response.json())
+    .then(text => {
+        
+        if (lang === "it") {
+            copy = text.it.index;
+            projects = text.it.projects.details;
+        } else if (lang === "en") {
+            copy = text.en.index;
+            projects = text.en.projects.details;
+        }
+
+        // render intro section
+        let introSection = `
+            <section class="intro">
+                <div class="container">
+                    <h1>${copy.intro.title}</h1>
+        `;
+        
+        copy.intro.desc.forEach(element => {
+            introSection += `
+                <p>${element}</p>
+            `;
+        });
+
+        introSection += `
+                </div>
+            </section>
+        `;     
+
+        indexElement.innerHTML += introSection;
+
+        // render formazione/education section
+        let formationSection = `
+        <section class="formazione">
+            <div class="container">
+                <h2>${copy.formation.title}</h2>
+        `;
+        
+        copy.formation.desc.forEach(element => {
+            formationSection += `
+                <p>${element}</p>
+            `;
+        });
+
+        formationSection += `
+                </div>
+            </section>
+        `;     
+
+        indexElement.innerHTML += formationSection;
+
+        // render projects section
+        let projectsSection = `
+        <section class="projects">
+            <div class="container">
+                <h2>${copy.projects.title}</h2>
+                <p>${copy.projects.desc}</p>
+                <ul>`;
+
+        for (let i = 0; i < projects.length && i < 3; i++) {
+            let project = projects[i];
+            projectsSection += `
+                <li><a href="projects/${project.id}.html">${project.title}</a>: ${project.shortdesc}</li>`;
+        }
+
+        projectsSection += `
+                </ul>
+                <p style="margin-top: 15px;"><a href="projects.html">${copy.projects.all}</a></p>
+            </div>
+        </section>`;
+
+        indexElement.innerHTML += projectsSection;
+    })
+    .catch(error => console.error('Error loading JSON:', error));
 }
