@@ -37,9 +37,9 @@ window.addEventListener("load", () => {
     }
 
     // renderize the index page
-    if (url.includes("/index") || url === "/") {
+    // if (url.includes("/index") || url === "/") {
         return renderIndex(lang);
-    }
+    // }
 })
 
 // render a project page
