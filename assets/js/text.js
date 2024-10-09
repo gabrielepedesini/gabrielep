@@ -304,7 +304,7 @@ function renderNotes(lang) {
     notesElement.innerHTML = "";
 
     // fetches the json
-    fetch('../assets/json/database.json')
+    fetch('assets/json/database.json')
     .then(response => response.json())
     .then(text => {
         
@@ -386,7 +386,7 @@ function renderContacts(lang) {
     contactsElement.innerHTML = "";
 
     // fetches the json
-    fetch('../assets/json/database.json')
+    fetch('assets/json/database.json')
     .then(response => response.json())
     .then(text => {
         
@@ -434,7 +434,7 @@ function renderIndex(lang) {
     indexElement.innerHTML = "";
 
     // fetches the json
-    fetch('../assets/json/database.json')
+    fetch('assets/json/database.json')
     .then(response => response.json())
     .then(text => {
         
